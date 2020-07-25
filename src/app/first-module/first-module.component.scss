@@ -1,0 +1,19 @@
+.title {
+  margin-top: 50px;
+}
+
+.module-container {
+  margin-top: 100px;
+}
+
+.invoice {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media(max-width: 576px) {
+  .invoices-title {
+    margin-top: 30px;
+  }
+}
+

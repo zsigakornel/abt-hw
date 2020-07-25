@@ -1,1 +1,72 @@
-<p>first-module works!</p>
+<div class="container">
+  <h1 class="text-center title">First module</h1>
+  <div class="row module-container">
+    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 order-sm-1 order-2">
+      <h3 class="mb-3 invoices-title">
+        Current invoices:
+      </h3>
+      <p *ngIf="invoices.length===0">Use the form to the right in order to add invoices -></p>
+      <div class="card invoice" *ngFor="let invoice of invoices">
+        <div class="card-body">
+          <p>
+            <b>ID:</b>
+            {{invoice.id}}
+          </p>
+          <p>
+            <b>Name:</b>
+            {{invoice.name}}
+          </p>
+          <p>
+            <b>Value:</b>
+            {{invoice.value}}
+          </p>
+          <p>
+            <b>Currency:</b>
+            {{invoice.currency}}
+          </p>
+          <p>
+            <b>Done:</b>
+            <span *ngIf="invoice.status"> YES</span>
+            <span *ngIf="!invoice.status"> NO</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 order-sm-2 order-1">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="invoiceForm" (ngSubmit)="submit()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" formControlName="name" id="name"
+                     [ngClass]="{ 'is-invalid' : submitted && f.name.errors }">
+              <div class="invalid-feedback">Please input a name between 5-25 characters</div>
+            </div>
+            <div class="form-group">
+              <label for="value">Value</label>
+              <input type="number" class="form-control" formControlName="value" id="value"
+                     [ngClass]="{ 'is-invalid' : submitted && f.value.errors }">
+              <div class="invalid-feedback">Please input a positive number</div>
+            </div>
+            <div class="form-group">
+              <label for="currency">Currency</label>
+              <select class="form-control" formControlName="currency" id="currency"
+                      [ngClass]="{ 'is-invalid' : submitted && f.currency.errors }">
+                <option *ngFor="let c of currencies" value="{{ c.key }}">{{ c.value }}</option>
+              </select>
+              <div class="invalid-feedback">Please choose a currency</div>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" formControlName="status" id="status">
+              <label for="status" class="form-check-label">Done</label>
+            </div>
+            <div class="d-flex justify-content-around">
+              <button type="submit" class="btn btn-success add-button">Add invoice</button>
+              <button type="button" class="btn btn-danger add-button" (click)="clearForm()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

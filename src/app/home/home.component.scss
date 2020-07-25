@@ -1,20 +1,30 @@
-.container{
+.container {
   padding-bottom: 60px;
 }
 
-.title{
+.title {
   font-size: 4rem;
   margin-top: 90px !important;
 }
 
-.subtitle{
+.subtitle {
   font-size: 2rem;
   margin: 40px 0 60px;
 }
 
-.modules-container{
-  .card{
+.modules-container {
+  .card {
     min-height: 225px;
     margin-top: 30px;
+
+    .btn {
+      background-color: #561f55 !important;
+      border-color: #561f55 !important;
+    }
+
+    .btn:hover, .btn:active {
+      background-color: #4D1B4C !important;
+      border-color: #4D1B4C !important;
+    }
   }
 }

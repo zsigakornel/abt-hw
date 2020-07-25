@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { FirstModuleComponent } from './first-module/first-module.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
